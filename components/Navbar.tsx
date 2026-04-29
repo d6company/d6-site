@@ -1,159 +1,130 @@
 
 import React, { useState } from 'react';
-import { Zap, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 
 interface NavbarProps {
   isScrolled: boolean;
-  userId: string | null;
-  onLoginClick: () => void;
-  onDashboardClick: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isScrolled, userId, onLoginClick, onDashboardClick }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
+  const [open, setOpen] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const links = [
+    { label: 'Serviços', href: '#servicos' },
+    { label: 'Cases', href: '#cases' },
+    { label: 'Contato', href: '#contato' },
+  ];
 
   return (
     <>
-      <nav className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isScrolled
-        ? 'top-4 mx-4 md:mx-auto md:max-w-5xl rounded-full bg-black/80 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)]'
-        : 'top-0 px-6 py-6 bg-transparent'
-        }`}>
-        <div className={`flex items-center justify-between ${isScrolled ? 'px-6 py-3' : 'max-w-7xl mx-auto'}`}>
-          <div className="flex items-center gap-2 group cursor-pointer">
-            <div className={`flex items-center justify-center transition-all duration-300 ${isScrolled ? 'w-8 h-8 rounded-lg' : 'w-10 h-10 rounded-xl'
-              } bg-[#BFF549] group-hover:rotate-12`}>
-              <Zap className={`text-black transition-all ${isScrolled ? 'w-4 h-4' : 'w-6 h-6'}`} fill="currentColor" />
-            </div>
-            <span className={`font-black tracking-tighter text-white transition-all ${isScrolled ? 'text-lg' : 'text-xl'
-              }`}>VOLTFLOW</span>
-          </div>
+      <nav
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? 'top-4 mx-4 md:mx-auto md:max-w-xl'
+            : 'top-0 px-6 py-5'
+        }`}
+      >
+        <div
+          className={`flex items-center justify-between transition-all duration-500 ${
+            isScrolled
+              ? 'bg-[#0D0E1A]/90 backdrop-blur-xl border border-white/[0.07] rounded-full px-5 py-3 shadow-[0_0_50px_rgba(123,92,245,0.08)]'
+              : 'max-w-6xl mx-auto'
+          }`}
+        >
+          {/* Logo — symbol only */}
+          <a href="#" className="flex items-center">
+            <img
+              src="https://res.cloudinary.com/dj6p7x8p3/image/upload/LOGO_D6_jsdd8a.png"
+              alt="D6"
+              width={isScrolled ? 28 : 34}
+              height={isScrolled ? 28 : 34}
+              style={{ objectFit: 'contain' }}
+            />
+          </a>
 
+          {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
-            {['Expertise', 'Process', 'Audit'].map((item) => (
+            {links.map((l) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-sm font-medium text-[#99A1AF] hover:text-[#BFF549] transition-colors relative group"
+                key={l.label}
+                href={l.href}
+                className="text-sm font-medium text-[#6B7699] hover:text-white transition-colors duration-200 tracking-wide"
               >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#BFF549] transition-all duration-300 group-hover:w-full"></span>
+                {l.label}
               </a>
             ))}
-
-            {/* Login/Dashboard button */}
-            {userId ? (
-              <button
-                onClick={onDashboardClick}
-                className="text-sm font-medium text-[#99A1AF] hover:text-[#BFF549] transition-colors relative group"
-              >
-                Dashboard
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#BFF549] transition-all duration-300 group-hover:w-full"></span>
-              </button>
-            ) : (
-              <button
-                onClick={onLoginClick}
-                className="text-sm font-medium text-[#99A1AF] hover:text-[#BFF549] transition-colors relative group"
-              >
-                Login
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#BFF549] transition-all duration-300 group-hover:w-full"></span>
-              </button>
-            )}
-
-            <button className={`bg-white text-black font-bold text-sm rounded-full hover:bg-[#BFF549] transition-all transform active:scale-95 ${isScrolled ? 'px-4 py-2' : 'px-6 py-2.5'
-              }`}>
-              Book Strategy
-            </button>
           </div>
 
-          <button
-            onClick={toggleMobileMenu}
-            className="md:hidden text-white p-2 relative z-50"
-            aria-label="Toggle menu"
+          {/* CTA */}
+          <a
+            href="#contato"
+            className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 hover:opacity-90 active:scale-95 ${
+              isScrolled
+                ? 'bg-[#7B5CF5] text-white'
+                : 'border border-white/10 text-white/80 hover:text-white hover:border-[#7B5CF5]/50 bg-white/[0.04]'
+            }`}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <div>
-                <div className="w-6 h-0.5 bg-white mb-1.5 rounded-full"></div>
-                <div className="w-6 h-0.5 bg-white mb-1.5 rounded-full"></div>
-                <div className="w-6 h-0.5 bg-white rounded-full"></div>
-              </div>
-            )}
+            Falar com a D6
+          </a>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setOpen(true)}
+            className="md:hidden flex flex-col gap-1.5 p-2"
+            aria-label="Menu"
+          >
+            <span className="w-5 h-px bg-white/80 block" />
+            <span className="w-5 h-px bg-white/80 block" />
+            <span className="w-3 h-px bg-white/80 block" />
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile overlay */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {open && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[60] bg-[#030408]/98 backdrop-blur-2xl flex flex-col"
           >
-            <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
-              {['Expertise', 'Process', 'Audit'].map((item, index) => (
+            <div className="flex items-center justify-between px-6 py-5">
+              <img
+                src="https://res.cloudinary.com/dj6p7x8p3/image/upload/LOGO_D6_jsdd8a.png"
+                alt="D6" width={32} height={32} style={{ objectFit: 'contain' }}
+              />
+              <button onClick={() => setOpen(false)} className="p-2 text-white/50 hover:text-white">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="flex flex-col items-start justify-center flex-1 gap-8 px-8">
+              {links.map((l, i) => (
                 <motion.a
-                  key={item}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  href={`#${item.toLowerCase()}`}
-                  onClick={closeMobileMenu}
-                  className="text-3xl font-bold text-white hover:text-[#BFF549] transition-colors"
+                  key={l.label}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06 }}
+                  className="text-4xl font-bold text-white/70 hover:text-white transition-colors"
                 >
-                  {item}
+                  {l.label}
                 </motion.a>
               ))}
-
-              {userId ? (
-                <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  onClick={() => {
-                    onDashboardClick();
-                    closeMobileMenu();
-                  }}
-                  className="text-3xl font-bold text-white hover:text-[#BFF549] transition-colors"
-                >
-                  Dashboard
-                </motion.button>
-              ) : (
-                <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  onClick={() => {
-                    onLoginClick();
-                    closeMobileMenu();
-                  }}
-                  className="text-3xl font-bold text-white hover:text-[#BFF549] transition-colors"
-                >
-                  Login
-                </motion.button>
-              )}
-
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                onClick={closeMobileMenu}
-                className="mt-4 px-10 py-4 bg-[#BFF549] text-black font-bold text-lg rounded-full hover:bg-white transition-all"
+              <motion.a
+                href="#contato"
+                onClick={() => setOpen(false)}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.22 }}
+                className="mt-6 px-8 py-4 bg-[#7B5CF5] text-white font-bold text-lg rounded-full"
               >
-                Book Strategy
-              </motion.button>
+                Falar com a D6
+              </motion.a>
             </div>
           </motion.div>
         )}
