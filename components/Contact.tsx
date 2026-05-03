@@ -16,17 +16,18 @@ const Contact: React.FC = () => {
     setLoading(true);
 
     try {
-      await fetch(SHEETS_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+      const params = new URLSearchParams({
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        idea: form.idea,
+        problem: form.problem,
       });
+      await fetch(`${SHEETS_URL}?${params.toString()}`, { method: 'GET', mode: 'no-cors' });
     } catch (_) {}
 
-    const msg = encodeURIComponent(
-      `🚀 Novo contato no site D6!\n\n*Nome:* ${form.name}\n*Empresa:* ${form.company || '—'}\n*Email:* ${form.email}\n*Telefone:* ${form.phone || '—'}`
-    );
+    const msg = encodeURIComponent(`🚀 Novo contato no site D6!\n\nNome: ${form.name}\nEmpresa: ${form.company || '—'}\nEmail: ${form.email}\nTelefone: ${form.phone || '—'}`);
     window.open(`https://wa.me/${WA_NOTIFY}?text=${msg}`, '_blank');
 
     setLoading(false);
