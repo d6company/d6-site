@@ -29,14 +29,14 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contato" className="py-32 relative overflow-hidden">
+    <section id="contato" className="py-16 md:py-32 relative overflow-hidden">
       {/* Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(123,92,245,0.08), transparent 70%)', filter: 'blur(80px)' }}
       />
 
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-5xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
           {/* Left — copy */}
           <div>
@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               className="font-black leading-[0.95] tracking-tight text-white mb-8"
-              style={{ fontSize: 'clamp(38px, 5vw, 60px)', fontFamily: "'Space Grotesk', sans-serif" }}
+              style={{ fontSize: 'clamp(28px, 5vw, 60px)', fontFamily: "'Space Grotesk', sans-serif" }}
             >
               SEU PROJETO<br />
               <span style={{
@@ -101,7 +101,7 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15, duration: 0.7 }}
-            className="rounded-3xl p-8 relative overflow-hidden"
+            className="rounded-3xl p-5 md:p-8 relative overflow-hidden"
             style={{
               background: 'linear-gradient(145deg, rgba(123,92,245,0.08), rgba(255,255,255,0.03))',
               border: '1px solid rgba(123,92,245,0.2)',

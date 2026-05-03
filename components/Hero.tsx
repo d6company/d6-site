@@ -246,8 +246,8 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-6 pt-24 pb-16" style={{ zIndex: 10 }}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="relative w-full max-w-7xl mx-auto px-4 md:px-6 pt-20 md:pt-24 pb-12 md:pb-16" style={{ zIndex: 10 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 
           <motion.div style={{ y: textY, opacity }}>
             <motion.div
@@ -278,7 +278,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.9, delay: 0.35 }}
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: 'clamp(52px, 9vw, 110px)',
+                fontSize: 'clamp(44px, 9vw, 110px)',
                 fontWeight: 900,
                 lineHeight: 0.88,
                 letterSpacing: '-2px',
@@ -304,7 +304,7 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.55 }}
               style={{
-                fontSize: 17,
+                fontSize: 'clamp(14px, 3vw, 17px)',
                 color: '#4A5175',
                 lineHeight: 1.65,
                 marginBottom: 44,

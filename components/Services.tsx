@@ -54,13 +54,13 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <section id="servicos" className="py-32 relative overflow-hidden">
+    <section id="servicos" className="py-16 md:py-32 relative overflow-hidden">
       {/* Background nebula */}
       <div className="absolute top-1/2 right-0 w-96 h-96 pointer-events-none -translate-y-1/2"
         style={{ background: 'radial-gradient(circle, rgba(74,159,232,0.06), transparent 70%)', filter: 'blur(60px)' }}
       />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header — asymmetric */}
         <div className="mb-20 max-w-xl">
           <motion.span
@@ -87,7 +87,7 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="font-black leading-[1] tracking-tight mb-6 text-white"
-            style={{ fontSize: 'clamp(40px, 6vw, 72px)', fontFamily: "'Space Grotesk', sans-serif" }}
+            style={{ fontSize: 'clamp(28px, 7vw, 72px)', fontFamily: "'Space Grotesk', sans-serif" }}
           >
             TECNOLOGIA<br />
             <span style={{
@@ -109,7 +109,7 @@ const Services: React.FC = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
           {services.map((s, i) => (
             <motion.div
               key={i}
@@ -118,7 +118,7 @@ const Services: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.12, duration: 0.6 }}
               whileHover={{ y: -6 }}
-              className="relative rounded-3xl p-8 flex flex-col group overflow-hidden cursor-default"
+              className="relative rounded-3xl p-6 md:p-8 flex flex-col group overflow-hidden cursor-default"
               style={{ background: s.gradient, border: `1px solid ${s.border}` }}
             >
               {/* Hover glow */}

@@ -35,13 +35,13 @@ const team = [
 
 const Team: React.FC = () => {
   return (
-    <section id="equipe" className="py-32 relative overflow-hidden">
+    <section id="equipe" className="py-16 md:py-32 relative overflow-hidden">
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(123,92,245,0.05), transparent 70%)', filter: 'blur(80px)' }}
       />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="mb-20 max-w-xl">
           <motion.span
@@ -58,7 +58,7 @@ const Team: React.FC = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="font-black leading-[1] tracking-tight text-white mb-6"
-            style={{ fontSize: 'clamp(38px, 5.5vw, 64px)', fontFamily: "'Space Grotesk', sans-serif" }}
+            style={{ fontSize: 'clamp(28px, 5.5vw, 64px)', fontFamily: "'Space Grotesk', sans-serif" }}
           >
             QUEM FAZ<br />
             <span style={{
@@ -80,7 +80,7 @@ const Team: React.FC = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {team.map((member, i) => (
             <motion.div
               key={i}

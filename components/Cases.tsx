@@ -40,12 +40,12 @@ const cases = [
 
 const Cases: React.FC = () => {
   return (
-    <section id="cases" className="py-32 relative overflow-hidden">
+    <section id="cases" className="py-16 md:py-32 relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(123,92,245,0.05), transparent 70%)', filter: 'blur(80px)' }}
       />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
@@ -63,7 +63,7 @@ const Cases: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               className="font-black leading-[0.95] tracking-tight text-white"
-              style={{ fontSize: 'clamp(38px, 5.5vw, 64px)', fontFamily: "'Space Grotesk', sans-serif" }}
+              style={{ fontSize: 'clamp(28px, 5.5vw, 64px)', fontFamily: "'Space Grotesk', sans-serif" }}
             >
               O QUE JÁ<br />
               <span style={{
@@ -77,7 +77,7 @@ const Cases: React.FC = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {cases.map((c, i) => (
             <motion.div
               key={i}
@@ -98,7 +98,7 @@ const Cases: React.FC = () => {
                 style={{ background: c.soon ? 'rgba(255,255,255,0.08)' : `linear-gradient(90deg, ${c.accent}, transparent)` }}
               />
 
-              <div className="p-8">
+              <div className="p-5 md:p-8">
                 {/* Label */}
                 <div className="flex items-center gap-2 mb-5">
                   {c.soon && <Lock className="w-3 h-3 text-[#6B7699]" />}

@@ -101,7 +101,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               </button>
             </div>
 
-            <div className="flex flex-col items-start justify-center flex-1 gap-8 px-8">
+            <div className="flex flex-col items-start justify-center flex-1 gap-6 px-6 md:px-8">
               {links.map((l, i) => (
                 <motion.a
                   key={l.label}
@@ -110,7 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.06 }}
-                  className="text-4xl font-bold text-white/70 hover:text-white transition-colors"
+                  className="text-3xl md:text-4xl font-bold text-white/70 hover:text-white transition-colors"
                 >
                   {l.label}
                 </motion.a>

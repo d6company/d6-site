@@ -11,13 +11,13 @@ const metrics = [
 
 const Stats: React.FC = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-12 md:py-24 relative overflow-hidden">
       {/* Divider line top */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, rgba(123,92,245,0.3), rgba(74,159,232,0.2), transparent)' }}
       />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
           {metrics.map((m, i) => (
             <motion.div
@@ -26,7 +26,7 @@ const Stats: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="relative px-8 py-10 text-center group"
+              className="relative px-4 md:px-8 py-6 md:py-10 text-center group"
             >
               {/* Vertical divider between items */}
               {i !== metrics.length - 1 && (
@@ -37,7 +37,7 @@ const Stats: React.FC = () => {
                 className="font-black mb-2 leading-none"
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: 'clamp(40px, 6vw, 64px)',
+                  fontSize: 'clamp(28px, 6vw, 64px)',
                   background: i % 2 === 0
                     ? 'linear-gradient(135deg, #A78BFA, #7B5CF5)'
                     : 'linear-gradient(135deg, #4A9FE8, #38C4B4)',
