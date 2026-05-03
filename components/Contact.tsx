@@ -11,21 +11,19 @@ const Contact: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', idea: '', problem: '' });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const params = new URLSearchParams({
-        name: form.name,
-        company: form.company,
-        email: form.email,
-        phone: form.phone,
-        idea: form.idea,
-        problem: form.problem,
-      });
-      await fetch(`${SHEETS_URL}?${params.toString()}`, { method: 'GET', mode: 'no-cors' });
-    } catch (_) {}
+    const params = new URLSearchParams({
+      name: form.name,
+      company: form.company,
+      email: form.email,
+      phone: form.phone,
+      idea: form.idea,
+      problem: form.problem,
+    });
+    fetch(`${SHEETS_URL}?${params.toString()}`, { method: 'GET', mode: 'no-cors' }).catch(() => {});
 
     const msg = encodeURIComponent(`🚀 Novo contato no site D6!\n\nNome: ${form.name}\nEmpresa: ${form.company || '—'}\nEmail: ${form.email}\nTelefone: ${form.phone || '—'}`);
     window.open(`https://wa.me/${WA_NOTIFY}?text=${msg}`, '_blank');
