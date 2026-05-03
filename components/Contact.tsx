@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycby5MdHwLdnnGSoo_21LAvKrPnhPKP8i5eAInFDnTibmrxSUraEHtxqyYvoJ4SArTgDE/exec';
-const WA_NOTIFY = '5511921354533';
 
 const Contact: React.FC = () => {
   const [sent, setSent] = useState(false);
@@ -24,9 +23,6 @@ const Contact: React.FC = () => {
       problem: form.problem,
     });
     fetch(`${SHEETS_URL}?${params.toString()}`, { method: 'GET', mode: 'no-cors' }).catch(() => {});
-
-    const msg = encodeURIComponent(`🚀 Novo contato no site D6!\n\nNome: ${form.name}\nEmpresa: ${form.company || '—'}\nEmail: ${form.email}\nTelefone: ${form.phone || '—'}`);
-    window.open(`https://wa.me/${WA_NOTIFY}?text=${msg}`, '_blank');
 
     setLoading(false);
     setSent(true);
