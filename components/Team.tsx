@@ -50,7 +50,7 @@ const Team: React.FC = () => {
             viewport={{ once: true }}
             className="inline-block text-xs font-semibold tracking-[4px] text-[#A78BFA] uppercase mb-5"
           >
-            Equipe
+            Fundadores
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -60,13 +60,13 @@ const Team: React.FC = () => {
             className="font-black leading-[1] tracking-tight text-white mb-6"
             style={{ fontSize: 'clamp(28px, 5.5vw, 64px)', fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            QUEM FAZ<br />
+            OS<br />
             <span style={{
               background: 'linear-gradient(135deg, #A78BFA, #7B5CF5, #4A9FE8)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-            }}>ACONTECER.</span>
+            }}>FUNDADORES.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -75,7 +75,7 @@ const Team: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-[#6B7699] text-base leading-relaxed"
           >
-            Um time pequeno, focado e sem desperdício. Cada pessoa aqui é especialista no que faz.
+            As pessoas que construíram a D6 do zero. Cada um especialista no que faz.
           </motion.p>
         </div>
 
