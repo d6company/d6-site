@@ -7,13 +7,7 @@ const Footer: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-center">
         <p className="text-xs text-[#2A2F45]">
           © 2025 D6 Digital. Todos os direitos reservados. Feito com precisão pela{' '}
-          <span style={{
-            background: 'linear-gradient(90deg, #7B5CF5, #4A9FE8)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            fontWeight: 600,
-          }}>D6 Digital</span>.
+          <span style={{ color: '#7C3AED', fontWeight: 600 }}>D6 Digital</span>.
         </p>
       </div>
     </footer>

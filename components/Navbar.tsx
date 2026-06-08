@@ -28,14 +28,14 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
         <div
           className={`flex items-center justify-between transition-all duration-500 ${
             isScrolled
-              ? 'bg-[#0D0E1A]/90 backdrop-blur-xl border border-white/[0.07] rounded-full px-5 py-3 shadow-[0_0_50px_rgba(123,92,245,0.08)]'
+              ? 'bg-[#0D0E1A]/90 backdrop-blur-xl border border-white/[0.07] rounded-full px-5 py-3 shadow-[0_0_50px_rgba(124,58,237,0.08)]'
               : 'max-w-6xl mx-auto'
           }`}
         >
           {/* Logo — symbol only */}
           <a href="#" className="flex items-center">
             <img
-              src="https://res.cloudinary.com/dj6p7x8p3/image/upload/LOGO_D6_jsdd8a.png"
+              src="/logo-d6-2026.png"
               alt="D6"
               width={isScrolled ? 28 : 34}
               height={isScrolled ? 28 : 34}
@@ -61,8 +61,8 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             href="#contato"
             className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 hover:opacity-90 active:scale-95 ${
               isScrolled
-                ? 'bg-[#7B5CF5] text-white'
-                : 'border border-white/10 text-white/80 hover:text-white hover:border-[#7B5CF5]/50 bg-white/[0.04]'
+                ? 'bg-[#7C3AED] text-white'
+                : 'border border-white/10 text-white/80 hover:text-white hover:border-[#7C3AED]/50 bg-white/[0.04]'
             }`}
           >
             Falar com a D6
@@ -93,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
           >
             <div className="flex items-center justify-between px-6 py-5">
               <img
-                src="https://res.cloudinary.com/dj6p7x8p3/image/upload/LOGO_D6_jsdd8a.png"
+                src="/logo-d6-2026.png"
                 alt="D6" width={32} height={32} style={{ objectFit: 'contain' }}
               />
               <button onClick={() => setOpen(false)} className="p-2 text-white/50 hover:text-white">
@@ -121,7 +121,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.22 }}
-                className="mt-6 px-8 py-4 bg-[#7B5CF5] text-white font-bold text-lg rounded-full"
+                className="mt-6 px-8 py-4 bg-[#7C3AED] text-white font-bold text-lg rounded-full"
               >
                 Falar com a D6
               </motion.a>

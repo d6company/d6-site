@@ -9,7 +9,7 @@ const cases = [
     title: 'Delícias da Flor',
     desc: 'Plataforma completa de entregas e pedidos de comida — cardápio digital, gestão de pedidos em tempo real e painel administrativo.',
     metrics: [],
-    accent: '#7B5CF5',
+    accent: '#7C3AED',
     soon: false,
   },
   {
@@ -17,7 +17,7 @@ const cases = [
     title: 'NexLot',
     desc: 'Plataforma SaaS para o mercado imobiliário com gestão de lotes, clientes e contratos em um único sistema.',
     metrics: [],
-    accent: '#4A9FE8',
+    accent: '#3B82F6',
     soon: false,
   },
   {
@@ -25,7 +25,7 @@ const cases = [
     title: 'LumeHub',
     desc: 'Hub de gestão operacional para equipes: organização de projetos, tarefas e comunicação centralizada.',
     metrics: [],
-    accent: '#38C4B4',
+    accent: '#0EA5E9',
     soon: false,
   },
   {
@@ -33,7 +33,7 @@ const cases = [
     title: 'LumeAcademy',
     desc: 'Plataforma de aprendizado online com trilhas de conteúdo, progresso de alunos e área do instrutor.',
     metrics: [],
-    accent: '#A78BFA',
+    accent: '#A855F7',
     soon: false,
   },
 ];
@@ -42,7 +42,7 @@ const Cases: React.FC = () => {
   return (
     <section id="cases" className="py-16 md:py-32 relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(123,92,245,0.05), transparent 70%)', filter: 'blur(80px)' }}
+        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.05), transparent 70%)', filter: 'blur(80px)' }}
       />
 
       <div className="max-w-6xl mx-auto px-4 md:px-6">
@@ -53,7 +53,7 @@ const Cases: React.FC = () => {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block text-xs font-semibold tracking-[4px] text-[#38C4B4] uppercase mb-5"
+              className="inline-block text-xs font-semibold tracking-[4px] text-[#0EA5E9] uppercase mb-5"
             >
               Cases
             </motion.span>
@@ -62,16 +62,17 @@ const Cases: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-black leading-[0.95] tracking-tight text-white"
-              style={{ fontSize: 'clamp(28px, 5.5vw, 64px)', fontFamily: "'Space Grotesk', sans-serif" }}
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontSize: 'clamp(28px, 5.5vw, 64px)',
+                fontWeight: 900,
+                lineHeight: 0.95,
+                letterSpacing: '-0.02em',
+                color: '#E8ECF8',
+              }}
             >
               O QUE JÁ<br />
-              <span style={{
-                background: 'linear-gradient(135deg, #38C4B4, #4A9FE8)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>ENTREGAMOS.</span>
+              <span style={{ color: '#0EA5E9' }}>ENTREGAMOS.</span>
             </motion.h2>
           </div>
         </div>

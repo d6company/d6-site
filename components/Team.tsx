@@ -6,29 +6,29 @@ const team = [
   {
     name: 'Bruna',
     role: 'Head de IA',
-    accent: '#A78BFA',
-    border: 'rgba(167,139,250,0.3)',
+    accent: '#A855F7',
+    border: 'rgba(168,85,247,0.3)',
     photo: '/team/bruna.png',
   },
   {
     name: 'Deusa',
     role: 'Gestora de Projetos',
-    accent: '#4A9FE8',
-    border: 'rgba(74,159,232,0.3)',
+    accent: '#3B82F6',
+    border: 'rgba(59,130,246,0.3)',
     photo: '/team/deusa.png',
   },
   {
     name: 'Ale',
     role: 'Head de Desenvolvimento',
-    accent: '#38C4B4',
-    border: 'rgba(56,196,180,0.3)',
+    accent: '#0EA5E9',
+    border: 'rgba(14,165,233,0.3)',
     photo: '/team/ale.png',
   },
   {
     name: 'Many',
     role: 'Especialista de Qualidade',
-    accent: '#7B5CF5',
-    border: 'rgba(123,92,245,0.3)',
+    accent: '#7C3AED',
+    border: 'rgba(124,58,237,0.3)',
     photo: '/team/many.png',
   },
 ];
@@ -38,7 +38,7 @@ const Team: React.FC = () => {
     <section id="equipe" className="py-16 md:py-32 relative overflow-hidden">
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(123,92,245,0.05), transparent 70%)', filter: 'blur(80px)' }}
+        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.05), transparent 70%)', filter: 'blur(80px)' }}
       />
 
       <div className="max-w-6xl mx-auto px-4 md:px-6">
@@ -48,7 +48,7 @@ const Team: React.FC = () => {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block text-xs font-semibold tracking-[4px] text-[#A78BFA] uppercase mb-5"
+            className="inline-block text-xs font-semibold tracking-[4px] text-[#A855F7] uppercase mb-5"
           >
             Fundadores
           </motion.span>
@@ -57,16 +57,18 @@ const Team: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-black leading-[1] tracking-tight text-white mb-6"
-            style={{ fontSize: 'clamp(28px, 5.5vw, 64px)', fontFamily: "'Space Grotesk', sans-serif" }}
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontSize: 'clamp(28px, 5.5vw, 64px)',
+              fontWeight: 900,
+              lineHeight: 0.95,
+              letterSpacing: '-0.02em',
+              color: '#E8ECF8',
+              marginBottom: 24,
+            }}
           >
             OS<br />
-            <span style={{
-              background: 'linear-gradient(135deg, #A78BFA, #7B5CF5, #4A9FE8)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>FUNDADORES.</span>
+            <span style={{ color: '#A855F7' }}>FUNDADORES.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -114,7 +116,7 @@ const Team: React.FC = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3
                     className="text-xl font-black text-white mb-1"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     {member.name}
                   </h3>

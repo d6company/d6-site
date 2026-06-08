@@ -229,7 +229,7 @@ const ProcessAnalyzer: React.FC = () => {
           >
             <Zap className="w-3.5 h-3.5 fill-current" style={{ color: '#A78BFA' }} />
             <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '3px', color: '#A78BFA', textTransform: 'uppercase' }}>
-              MVP Gratuito
+              Orçamento Gratuito
             </span>
           </motion.div>
 
