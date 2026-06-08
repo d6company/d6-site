@@ -11,14 +11,16 @@ const cases = [
     metrics: [],
     accent: '#7C3AED',
     soon: false,
+    image: '/case-flor.png',
   },
   {
-    label: 'SaaS · Imóveis',
+    label: 'SaaS · IA para Leilões',
     title: 'NexLot',
-    desc: 'Plataforma SaaS para o mercado imobiliário com gestão de lotes, clientes e contratos em um único sistema.',
+    desc: 'Plataforma SaaS com IA que varre 30+ plataformas de leilão simultaneamente e revela lotes ocultos de eletrônicos, eletrodomésticos e veículos com score de oportunidade e análise de margem.',
     metrics: [],
-    accent: '#3B82F6',
+    accent: '#10B981',
     soon: false,
+    image: '/case-nexlot.png',
   },
   {
     label: 'SaaS · Gestão',
@@ -27,6 +29,7 @@ const cases = [
     metrics: [],
     accent: '#0EA5E9',
     soon: false,
+    image: '/case-lumehub.png',
   },
   {
     label: 'Educação · Plataforma',
@@ -35,6 +38,7 @@ const cases = [
     metrics: [],
     accent: '#A855F7',
     soon: false,
+    image: '/case-lumeacademy.png',
   },
 ];
 
@@ -77,8 +81,8 @@ const Cases: React.FC = () => {
           </div>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+        {/* Grid — Opção 2: layout horizontal, imagem à direita */}
+        <div className="flex flex-col gap-4 md:gap-5">
           {cases.map((c, i) => (
             <motion.div
               key={i}
@@ -86,54 +90,35 @@ const Cases: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="relative rounded-3xl overflow-hidden group"
+              className="relative rounded-3xl overflow-hidden group flex flex-col md:flex-row md:h-[220px]"
               style={{
-                background: c.soon
-                  ? 'rgba(255,255,255,0.02)'
-                  : 'linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015))',
+                background: 'linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015))',
                 border: `1px solid ${c.soon ? 'rgba(255,255,255,0.05)' : `${c.accent}22`}`,
               }}
             >
               {/* Top accent bar */}
-              <div className="h-0.5 w-full"
+              <div className="h-0.5 w-full absolute top-0 left-0 right-0"
                 style={{ background: c.soon ? 'rgba(255,255,255,0.08)' : `linear-gradient(90deg, ${c.accent}, transparent)` }}
               />
 
-              <div className="p-5 md:p-8">
-                {/* Label */}
-                <div className="flex items-center gap-2 mb-5">
+              {/* Text content */}
+              <div className="flex-1 p-6 md:p-10 flex flex-col justify-center">
+                <div className="flex items-center gap-2 mb-4">
                   {c.soon && <Lock className="w-3 h-3 text-[#6B7699]" />}
-                  <span
-                    className="text-[10px] font-bold tracking-[3px] uppercase"
-                    style={{ color: c.soon ? '#6B7699' : c.accent }}
-                  >
+                  <span className="text-[10px] font-bold tracking-[3px] uppercase" style={{ color: c.soon ? '#6B7699' : c.accent }}>
                     {c.label}
                   </span>
                 </div>
 
-                {/* Title */}
-                <h3 className={`text-lg font-bold mb-4 leading-snug ${c.soon ? 'text-[#6B7699]' : 'text-white'}`}>
+                <h3 className={`font-bold mb-3 leading-snug ${c.soon ? 'text-[#6B7699]' : 'text-white'}`}
+                  style={{ fontSize: 'clamp(18px, 2vw, 22px)' }}>
                   {c.title}
                 </h3>
 
-                {/* Desc */}
-                <p className="text-[#6B7699] text-sm leading-relaxed mb-6">
+                <p className="text-[#6B7699] text-sm leading-relaxed mb-5 max-w-md line-clamp-3">
                   {c.desc}
                 </p>
 
-                {/* Metrics */}
-                {c.metrics.length > 0 && (
-                  <div className="flex flex-col gap-2 mb-6">
-                    {c.metrics.map((m) => (
-                      <div key={m} className="flex items-center gap-2.5 text-sm font-medium text-white/80">
-                        <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: c.accent }} />
-                        {m}
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* CTA */}
                 {!c.soon && (
                   <a
                     href="#contato"
@@ -144,16 +129,19 @@ const Cases: React.FC = () => {
                     <ArrowRight className="w-3 h-3" />
                   </a>
                 )}
-
-                {c.soon && (
-                  <a
-                    href="#contato"
-                    className="inline-flex items-center gap-2 text-xs font-medium text-[#6B7699] hover:text-white transition-colors"
-                  >
-                    Falar com a D6 <ArrowRight className="w-3 h-3" />
-                  </a>
-                )}
               </div>
+
+              {/* Image on the right */}
+              {c.image && (
+                <div className="md:w-[52%] flex-shrink-0 overflow-hidden"
+                  style={{ height: '200px', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+                  <img
+                    src={c.image}
+                    alt={c.title}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
