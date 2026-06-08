@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { useT } from '../lib/LanguageContext';
 
 interface NavbarProps {
   isScrolled: boolean;
@@ -9,12 +10,8 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   const [open, setOpen] = useState(false);
-
-  const links = [
-    { label: 'Serviços', href: '#servicos' },
-    { label: 'Cases', href: '#cases' },
-    { label: 'Contato', href: '#contato' },
-  ];
+  const t = useT();
+  const { links, cta, ctaHref } = t.navbar;
 
   return (
     <>
@@ -32,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               : 'max-w-6xl mx-auto'
           }`}
         >
-          {/* Logo — symbol only */}
+          {/* Logo */}
           <a href="#" className="flex items-center">
             <img
               src="/logo-d6-2026.png"
@@ -58,14 +55,14 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
 
           {/* CTA */}
           <a
-            href="#contato"
+            href={ctaHref}
             className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 hover:opacity-90 active:scale-95 ${
               isScrolled
                 ? 'bg-[#7C3AED] text-white'
                 : 'border border-white/10 text-white/80 hover:text-white hover:border-[#7C3AED]/50 bg-white/[0.04]'
             }`}
           >
-            Falar com a D6
+            {cta}
           </a>
 
           {/* Mobile hamburger */}
@@ -92,10 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             className="fixed inset-0 z-[60] bg-[#030408]/98 backdrop-blur-2xl flex flex-col"
           >
             <div className="flex items-center justify-between px-6 py-5">
-              <img
-                src="/logo-d6-2026.png"
-                alt="D6" width={32} height={32} style={{ objectFit: 'contain' }}
-              />
+              <img src="/logo-d6-2026.png" alt="D6" width={32} height={32} style={{ objectFit: 'contain' }} />
               <button onClick={() => setOpen(false)} className="p-2 text-white/50 hover:text-white">
                 <X className="w-5 h-5" />
               </button>
@@ -116,14 +110,14 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                 </motion.a>
               ))}
               <motion.a
-                href="#contato"
+                href={ctaHref}
                 onClick={() => setOpen(false)}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.22 }}
                 className="mt-6 px-8 py-4 bg-[#7C3AED] text-white font-bold text-lg rounded-full"
               >
-                Falar com a D6
+                {cta}
               </motion.a>
             </div>
           </motion.div>

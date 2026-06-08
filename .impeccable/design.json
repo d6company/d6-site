@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-15T00:00:00.000Z",
+  "title": "Design System: D6 Digital",
+  "extensions": {
+    "colorMeta": {
+      "void-base":       { "role": "neutral",   "displayName": "Vácuo Base",           "canonical": "oklch(7% 0.008 275)",  "tonalRamp": ["#010103", "#030408", "#06060F", "#0D0E1A", "#161828", "#232540", "#323558", "#434770"] },
+      "void-deep":       { "role": "neutral",   "displayName": "Vácuo Profundo",       "canonical": "oklch(5% 0.006 275)",  "tonalRamp": ["#010102", "#020306", "#05050D", "#0A0B16", "#13152A", "#1E2138", "#2B2E50", "#3A3E68"] },
+      "nav-surface":     { "role": "neutral",   "displayName": "Superfície Nav",       "canonical": "oklch(12% 0.012 275)", "tonalRamp": ["#03040C", "#0D0E1A", "#15172A", "#1F2136", "#2A2C44", "#353852", "#434660", "#545870"] },
+      "text-primary":    { "role": "neutral",   "displayName": "Texto Principal",      "canonical": "oklch(93% 0.008 255)", "tonalRamp": ["#A0A8C0", "#B0B8D0", "#C0C8DC", "#CDD5E8", "#D8DFF0", "#E0E7F4", "#E8ECF8", "#F2F4FA"] },
+      "text-muted":      { "role": "neutral",   "displayName": "Texto Muted",          "canonical": "oklch(48% 0.04 260)",  "tonalRamp": ["#3A3F58", "#484D68", "#565B78", "#626888", "#6B7699", "#7D8AAD", "#909EC0", "#A4B2D0"] },
+      "violet-primary":  { "role": "primary",   "displayName": "Violeta de Circuito",  "canonical": "oklch(55% 0.22 285)",  "tonalRamp": ["#2D1A7A", "#3E28A0", "#5038C8", "#6548E8", "#7B5CF5", "#9272F8", "#A98AFA", "#C0A5FC"] },
+      "violet-light":    { "role": "primary",   "displayName": "Violeta Claro",        "canonical": "oklch(65% 0.16 285)",  "tonalRamp": ["#4A2E9A", "#5C3EB8", "#6E50CC", "#7E62DC", "#A78BFA", "#B89DFB", "#C9B0FC", "#DAC5FD"] },
+      "violet-pale":     { "role": "primary",   "displayName": "Lavanda de Destaque",  "canonical": "oklch(72% 0.13 305)",  "tonalRamp": ["#622090", "#7830A8", "#8C44BC", "#9E60CC", "#C084FC", "#CC98FD", "#D8ACFE", "#E4C0FF"] },
+      "blue-signal":     { "role": "secondary", "displayName": "Azul de Terminal",     "canonical": "oklch(62% 0.14 230)",  "tonalRamp": ["#1A4080", "#2252A0", "#2C66C0", "#3480DC", "#4A9FE8", "#62B0EE", "#7EC0F4", "#9AD0F8"] },
+      "teal-confirm":    { "role": "tertiary",  "displayName": "Teal de Confirmação",  "canonical": "oklch(68% 0.12 192)",  "tonalRamp": ["#14605A", "#1C7870", "#249088", "#2CACA0", "#38C4B4", "#52CFC1", "#70DACC", "#90E4D8"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Títulos de seção em maiúsculas. O bloco tipográfico é o visual." },
+      "headline": { "displayName": "Headline", "purpose": "Subtítulos e hero secondary." },
+      "title":    { "displayName": "Title",    "purpose": "Títulos de card e nomes de produto em cases." },
+      "body":     { "displayName": "Body",     "purpose": "Parágrafos descritivos. Sempre em #6B7699, max 65ch." },
+      "label":    { "displayName": "Label",    "purpose": "Eyebrows de seção. Uppercase, tracking extremo, cor do acento temático." }
+    },
+    "shadows": [
+      { "name": "glow-section",  "value": "radial-gradient(circle, rgba(123,92,245,0.06), transparent 70%) + filter: blur(70px)", "purpose": "Brilho de fundo em cantos/centro de seção. Nunca na área de leitura." },
+      { "name": "glow-nav",      "value": "0 0 50px rgba(123,92,245,0.08)",                                                       "purpose": "Apenas na navbar scrolled. Ancora o pill no espaço visual." },
+      { "name": "accent-bar",    "value": "height: 2px; linear-gradient(90deg, accent, transparent)",                             "purpose": "Borda superior de card. Substitui box-shadow como marcador de elevação." }
+    ],
+    "motion": [
+      { "name": "enter-scroll",  "value": "opacity: 0→1, translateY: 32px→0, duration: 600ms, ease: cubic-bezier(0.16,1,0.3,1)", "purpose": "Entrada de elementos em viewport. Stagger 0.1s entre filhos." },
+      { "name": "star-pulse",    "value": "opacity: flicker, duration: 4-14s, ease: easeInOut, repeat: infinite",                 "purpose": "Star field do hero. Desativar em prefers-reduced-motion." },
+      { "name": "orbital-spin",  "value": "rotate: 360deg, duration: 20-60s, ease: linear, repeat: infinite",                    "purpose": "Anéis orbitais do hero. Desativar em prefers-reduced-motion." },
+      { "name": "hover-quick",   "value": "opacity/color, duration: 200ms, ease: ease-out",                                      "purpose": "Hover em links de navegação e CTAs ghost." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA principal. Pill completo, violeta sólido, hover de opacidade.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#contato\">Falar com a D6</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: #7B5CF5; color: #E8ECF8; border-radius: 9999px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.2s ease-out, transform 0.15s ease-out; } .ds-btn-primary:hover { opacity: 0.9; } .ds-btn-primary:active { transform: scale(0.95); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Ação secundária. Pill com borda sutil, fundo quase transparente.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#servicos\">Ver serviços</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.8); border-radius: 9999px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.10); cursor: pointer; transition: color 0.2s ease-out, border-color 0.2s ease-out, transform 0.15s ease-out; } .ds-btn-ghost:hover { color: #fff; border-color: rgba(123,92,245,0.5); } .ds-btn-ghost:active { transform: scale(0.95); }"
+    },
+    {
+      "name": "Case Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Card de case/produto. Rounded-3xl, barra de acento no topo, fundo tonal mínimo.",
+      "html": "<div class=\"ds-case-card\" data-accent=\"#7B5CF5\"><div class=\"ds-case-card__bar\" style=\"background: linear-gradient(90deg, #7B5CF5, transparent)\"></div><div class=\"ds-case-card__body\"><span class=\"ds-case-card__label\" style=\"color: #7B5CF5\">SaaS · Imóveis</span><h3 class=\"ds-case-card__title\">NexLot</h3><p class=\"ds-case-card__desc\">Plataforma SaaS para o mercado imobiliário com gestão de lotes, clientes e contratos.</p></div></div>",
+      "css": ".ds-case-card { border-radius: 24px; overflow: hidden; border: 1px solid rgba(123,92,245,0.13); background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)); transition: transform 0.3s ease-out; } .ds-case-card:hover { transform: translateY(-2px); } .ds-case-card__bar { height: 2px; width: 100%; } .ds-case-card__body { padding: 20px; } .ds-case-card__label { display: block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 12px; } .ds-case-card__title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #E8ECF8; margin: 0 0 12px; } .ds-case-card__desc { font-family: 'Inter', sans-serif; font-size: 14px; color: #6B7699; line-height: 1.6; margin: 0; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "Campo de formulário. Fundo quase transparente, foco em violeta.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field__label\">Seu nome</label><input class=\"ds-field__input\" type=\"text\" placeholder=\"João Silva\" /></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 8px; } .ds-field__label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #6B7699; } .ds-field__input { width: 100%; padding: 14px 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 14px; color: #E8ECF8; outline: none; transition: border-color 0.15s ease-out; box-sizing: border-box; } .ds-field__input::placeholder { color: #3A3F5C; } .ds-field__input:focus { border-color: rgba(123,92,245,0.5); }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Rótulo de abertura de seção. Uppercase, tracking extremo, cor do acento temático.",
+      "html": "<span class=\"ds-eyebrow\" style=\"color: #7B5CF5\">Serviços</span>",
+      "css": ".ds-eyebrow { display: inline-block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; margin-bottom: 20px; }"
+    },
+    {
+      "name": "Nav Pill (scrolled)",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Navbar no estado scrolled: pill centralizado com blur e glow violeta.",
+      "html": "<nav class=\"ds-nav-pill\"><a class=\"ds-nav-pill__logo\" href=\"#\">D6</a><div class=\"ds-nav-pill__links\"><a class=\"ds-nav-link\" href=\"#servicos\">Serviços</a><a class=\"ds-nav-link\" href=\"#cases\">Cases</a><a class=\"ds-nav-link\" href=\"#contato\">Contato</a></div><a class=\"ds-btn-primary\" href=\"#contato\" style=\"padding: 8px 16px; font-size: 13px;\">Falar com a D6</a></nav>",
+      "css": ".ds-nav-pill { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; background: rgba(13,14,26,0.90); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.07); border-radius: 9999px; box-shadow: 0 0 50px rgba(123,92,245,0.08); } .ds-nav-pill__links { display: flex; align-items: center; gap: 32px; } .ds-nav-link { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #6B7699; text-decoration: none; transition: color 0.2s; } .ds-nav-link:hover { color: #E8ECF8; } .ds-nav-pill__logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; color: #E8ECF8; text-decoration: none; font-size: 18px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Terminal Orbital",
+    "overview": "Um terminal de engenharia no espaço profundo. A D6 constrói dentro de uma escuridão quase absoluta, onde cada cor é sinal funcional, não decoração. O fundo é vácuo (#030408), denso o suficiente para absorver qualquer excesso. Os acentos, violeta, azul e teal, são os únicos pontos de luz: surgem onde há ação, onde o sistema confirma, onde o usuário precisa olhar.\n\nA tipografia não pede licença. Space Grotesk em peso 900, letras maiúsculas, compressão de leading para 0.95, texto que ocupa espaço como engenharia ocupa plantas: com intenção e sem folga. Inter cuida do funcional, neutra e legível, sem chamar atenção para si.\n\nO sistema rejeita qualquer coisa que pareça ter sido montada a partir de um template. Nenhum gradiente no texto como ornamento. Nenhum glassmorphism decorativo. Nenhuma sombra dramática. A profundidade vem de camadas tonais e de brilhos radiais que funcionam como luz vazando pelo chão de uma sala escura.",
+    "keyCharacteristics": [
+      "Fundo vácuo com acentos funcionais: cor como sinal, não cenário",
+      "Display tipográfico em peso máximo com leading comprimido",
+      "Cards como volumes flutuantes sobre escuridão, sem sombra convencional",
+      "Motion de entrada em scroll: opacity + translate, staggered, ease-out exponencial",
+      "Eyebrow labels em uppercase tracking extremo marcam seções antes do título"
+    ],
+    "rules": [
+      { "name": "A Regra do Sinal",           "body": "Cor é informação, não atmosfera. O violeta aparece onde o usuário precisa agir. Azul sinaliza referência técnica. Teal sinaliza confirmação. Nunca os três no mesmo elemento.", "section": "colors" },
+      { "name": "A Regra do Vácuo",           "body": "O fundo não é preto, é quase preto com chroma violeta mínimo. #030408 parece espaço profundo; #000000 parece morte.", "section": "colors" },
+      { "name": "A Regra do Uppercase Display","body": "Títulos de seção em Display são sempre maiúsculos. Minúsculas apenas em body e no nome da marca no rodapé.", "section": "typography" },
+      { "name": "A Regra do Leading Comprimido","body": "Display usa line-height 0.95, não 1.2. O bloco tipográfico precisa sentir peso e intenção, não conforto.", "section": "typography" },
+      { "name": "A Regra do Plano Sem Sombra", "body": "Cards não têm box-shadow. Elevação vem de fundo tonal (rgba(255,255,255,0.04)) mais barra de acento no topo. Se precisar de sombra, a estrutura está errada.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar Space Grotesk 900 em maiúsculas para todos os títulos de seção, com line-height 0.95 e tracking negativo.",
+      "Do variar a cor do eyebrow por seção (#7B5CF5 em serviços, #38C4B4 em cases) para criar ritmo visual enquanto o usuário faz scroll.",
+      "Do usar barra de acento de 2px no topo do card como marcador de categoria.",
+      "Do criar profundidade com glow radial difuso (blur 60-80px, opacidade 5-8%) fora da área de leitura.",
+      "Do animar entradas com opacity + translateY, staggered 0.1s, ease-out exponencial, duration 500-600ms.",
+      "Do respeitar prefers-reduced-motion: desativar star field, orbitais e animações de entrada."
+    ],
+    "donts": [
+      "Don't usar gradient no texto (background-clip: text). É um débito técnico existente; novos elementos não devem repeti-lo.",
+      "Don't criar agência genérica brasileira: fundo branco, gradiente roxo em header, 'somos apaixonados por tecnologia'.",
+      "Don't usar o template hero-metric: número grande, label pequeno, estatísticas de suporte.",
+      "Don't usar sombra convencional em cards ou superfícies.",
+      "Don't usar glassmorphism decorativo. O blur da navbar é funcional; isso não autoriza blur em cards ou modais.",
+      "Don't criar portfólio-de-freelancer: foto centralizada dos fundadores, barra de progresso de skill, timeline de experiência.",
+      "Don't usar neon on black, glitch, contador regressivo, ou qualquer padrão de hype/crypto.",
+      "Don't usar cards com ícone + heading + texto repetidos em grid idêntico."
+    ]
+  }
+}

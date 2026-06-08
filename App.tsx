@@ -7,9 +7,13 @@ import Cases from './components/Cases';
 import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { LanguageProvider } from './lib/LanguageContext';
+import { Lang } from './lib/i18n';
+import { useT } from './lib/LanguageContext';
 
-const App: React.FC = () => {
+const AppInner: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const t = useT();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 60);
@@ -23,7 +27,7 @@ const App: React.FC = () => {
       <main>
         <Hero />
         <Services />
-<Cases />
+        <Cases />
         <Team />
         <Contact />
       </main>
@@ -31,39 +35,15 @@ const App: React.FC = () => {
 
       {/* WhatsApp floating button */}
       <div style={{ position: 'fixed', bottom: 28, right: 28, zIndex: 9999 }}>
-        {/* Pulse ring */}
-        <span style={{
-          position: 'absolute',
-          inset: 0,
-          borderRadius: '50%',
-          background: 'rgba(37,211,102,0.4)',
-          animation: 'wa-pulse 2s ease-out infinite',
-        }} />
+        <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: 'rgba(37,211,102,0.4)', animation: 'wa-pulse 2s ease-out infinite' }} />
         <a
-          href="https://wa.me/5511986794062?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20D6%20Digital%20e%20gostaria%20de%20conversar%20sobre%20um%20produto."
+          href={`https://wa.me/5511986794062?text=${t.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Falar no WhatsApp"
-          style={{
-            position: 'relative',
-            width: 56,
-            height: 56,
-            borderRadius: '50%',
-            background: '#25D366',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 4px 24px rgba(37,211,102,0.35)',
-            transition: 'transform 0.2s, box-shadow 0.2s',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.08)';
-            e.currentTarget.style.boxShadow = '0 6px 32px rgba(37,211,102,0.55)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.boxShadow = '0 4px 24px rgba(37,211,102,0.35)';
-          }}
+          aria-label="WhatsApp"
+          style={{ position: 'relative', width: 56, height: 56, borderRadius: '50%', background: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 24px rgba(37,211,102,0.35)', transition: 'transform 0.2s, box-shadow 0.2s' }}
+          onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.boxShadow = '0 6px 32px rgba(37,211,102,0.55)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(37,211,102,0.35)'; }}
         >
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.663 4.61 1.81 6.51L4 29l7.697-1.79A12.93 12.93 0 0 0 16 28c6.627 0 12-5.373 12-12S22.627 3 16 3z" fill="white"/>
@@ -74,5 +54,11 @@ const App: React.FC = () => {
     </div>
   );
 };
+
+const App: React.FC<{ lang?: Lang }> = ({ lang = 'pt' }) => (
+  <LanguageProvider lang={lang}>
+    <AppInner />
+  </LanguageProvider>
+);
 
 export default App;

@@ -1,6 +1,7 @@
 import React, { useRef, useMemo } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useT } from '../lib/LanguageContext';
 
 const StarField: React.FC = () => {
   const stars = useMemo(() => {
@@ -39,14 +40,14 @@ const StarField: React.FC = () => {
 
 const Hero: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const t = useT();
+  const h = t.hero;
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const textY = useTransform(scrollYProgress, [0, 1], [0, 140]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden" style={{ background: '#03040C' }}>
-
-      {/* Grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -56,10 +57,7 @@ const Hero: React.FC = () => {
           maskImage: 'radial-gradient(ellipse 70% 70% at 50% 50%, black 10%, transparent 80%)',
         }}
       />
-
       <StarField />
-
-      {/* Ambient glows */}
       <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
         <div style={{ position: 'absolute', top: '-20%', left: '-15%', width: 700, height: 700, borderRadius: '50%', background: 'radial-gradient(circle, rgba(124,58,237,0.14) 0%, transparent 65%)', filter: 'blur(70px)' }} />
         <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: 560, height: 560, borderRadius: '50%', background: 'radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 65%)', filter: 'blur(70px)' }} />
@@ -67,8 +65,6 @@ const Hero: React.FC = () => {
 
       <div className="relative w-full max-w-7xl mx-auto px-4 md:px-6 pt-24 md:pt-28 pb-12 md:pb-16" style={{ zIndex: 10 }}>
         <motion.div style={{ y: textY, opacity }} className="max-w-3xl">
-
-          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,26 +74,18 @@ const Hero: React.FC = () => {
           >
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#0EA5E9', display: 'inline-block', animation: 'pulse 2s infinite' }} />
             <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '3px', color: '#A855F7', textTransform: 'uppercase' }}>
-              Software House · Brasil
+              {h.badge}
             </span>
           </motion.div>
 
-          {/* Headline — sem gradient text */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35 }}
-            style={{
-              fontFamily: "'Poppins', sans-serif",
-              fontSize: 'clamp(52px, 10vw, 120px)',
-              fontWeight: 900,
-              lineHeight: 0.88,
-              letterSpacing: '-2px',
-              marginBottom: 32,
-            }}
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(52px, 10vw, 120px)', fontWeight: 900, lineHeight: 0.88, letterSpacing: '-2px', marginBottom: 32 }}
           >
-            <span style={{ display: 'block', color: '#E8ECF8' }}>RÁPIDO.</span>
-            <span style={{ display: 'block', color: '#7C3AED' }}>CERTO.</span>
+            <span style={{ display: 'block', color: '#E8ECF8' }}>{h.headline1}</span>
+            <span style={{ display: 'block', color: '#7C3AED' }}>{h.headline2}</span>
           </motion.h1>
 
           <motion.p
@@ -106,10 +94,9 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.55 }}
             style={{ fontSize: 'clamp(14px, 2.5vw, 17px)', color: '#6B7699', lineHeight: 1.7, marginBottom: 48, maxWidth: 420 }}
           >
-            Sistemas web, SaaS e automações com IA — entregues no prazo, sem concessões de qualidade.
+            {h.sub}
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,23 +106,23 @@ const Hero: React.FC = () => {
             <div className="relative group">
               <div className="absolute inset-0 rounded-full opacity-30 group-hover:opacity-60 transition-opacity duration-300" style={{ background: '#7C3AED', filter: 'blur(18px)', transform: 'scale(0.85)' }} />
               <a
-                href="#contato"
+                href={h.ctaHref}
                 className="relative flex items-center gap-3 rounded-full font-bold text-sm text-white transition-transform hover:scale-[1.02] active:scale-95"
                 style={{ background: '#7C3AED', padding: '14px 30px', zIndex: 1 }}
               >
-                Falar com a D6
+                {h.cta}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
 
             <a
-              href="#cases"
+              href={h.secondaryHref}
               className="text-sm font-medium transition-colors"
               style={{ color: '#6B7699' }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#A855F7')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#6B7699')}
             >
-              Ver cases →
+              {h.secondary}
             </a>
           </motion.div>
         </motion.div>
