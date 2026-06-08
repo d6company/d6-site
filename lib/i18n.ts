@@ -84,8 +84,8 @@ export const translations = {
       tag: 'Vamos conversar',
       headline1: 'SEU PROJETO',
       headline2: 'COMEÇA AQUI.',
-      desc: 'Conta a sua ideia e o problema que você quer resolver. A gente monta um orçamento e entra em contato em até 10 dias.',
-      bullets: ['Orçamento em até 10 dias', 'Orçamento personalizado', 'Sem enrolação, sem compromisso'],
+      desc: 'Conta a sua ideia e o problema que você quer resolver. A gente monta um orçamento e entra em contato em breve.',
+      bullets: ['Orçamento personalizado', 'Resposta rápida', 'Sem enrolação, sem compromisso'],
       form: {
         namePlaceholder: 'João Silva',
         nameLabel: 'Seu nome',
@@ -105,7 +105,7 @@ export const translations = {
       },
       success: {
         title: 'Ideia recebida!',
-        desc: 'Vamos montar seu orçamento e entrar em contato em até 10 dias.',
+        desc: 'Vamos montar seu orçamento e entrar em contato em breve.',
       },
     },
     footer: {
@@ -198,8 +198,8 @@ export const translations = {
       tag: "Let's talk",
       headline1: 'YOUR PROJECT',
       headline2: 'STARTS HERE.',
-      desc: "Share your idea and the problem you want to solve. We'll put together a quote and get back to you within 10 days.",
-      bullets: ['Quote within 10 days', 'Custom quote', 'No nonsense, no commitment'],
+      desc: "Share your idea and the problem you want to solve. We'll put together a quote and reach out shortly.",
+      bullets: ['Custom quote', 'Fast response', 'No nonsense, no commitment'],
       form: {
         nameLabel: 'Your name',
         namePlaceholder: 'John Smith',
@@ -219,7 +219,7 @@ export const translations = {
       },
       success: {
         title: 'Idea received!',
-        desc: "We'll put together your quote and get back to you within 10 days.",
+        desc: "We'll put together your quote and reach out shortly.",
       },
     },
     footer: {
