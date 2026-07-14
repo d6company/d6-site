@@ -128,7 +128,7 @@ const Contact: React.FC = () => {
 
                 <p className="text-center text-xs text-[#3A3F5C]">
                   {f.whatsappLabel}{' '}
-                  <a href={`https://wa.me/5511986794062?text=${t.whatsapp}`} target="_blank" rel="noopener noreferrer"
+                  <a href={`https://wa.me/5511998540063?text=${t.whatsapp}`} target="_blank" rel="noopener noreferrer"
                     className="text-[#7C3AED] hover:text-[#A855F7] transition-colors">
                     WhatsApp
                   </a>

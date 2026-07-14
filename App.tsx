@@ -37,7 +37,7 @@ const AppInner: React.FC = () => {
       <div style={{ position: 'fixed', bottom: 28, right: 28, zIndex: 9999 }}>
         <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: 'rgba(37,211,102,0.4)', animation: 'wa-pulse 2s ease-out infinite' }} />
         <a
-          href={`https://wa.me/5511986794062?text=${t.whatsapp}`}
+          href={`https://wa.me/5511998540063?text=${t.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
